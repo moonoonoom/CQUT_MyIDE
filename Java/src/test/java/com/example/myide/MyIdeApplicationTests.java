@@ -1,10 +1,10 @@
-package com.luna.myide;
+package com.example.myide;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MyideApplicationTests {
+class MyIdeApplicationTests {
 
     @Test
     void contextLoads() {

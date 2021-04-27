@@ -9,7 +9,7 @@
   active-text-color="#ffd04b">
    <el-submenu index="1">
     <template slot="title">文件</template>
-    <el-menu-item index="1-1">打开</el-menu-item>
+    <el-menu-item index="1-1" @click="postFile()">打开</el-menu-item>
     <el-menu-item index="1-2">保存</el-menu-item>
     <el-menu-item index="1-3">另存为</el-menu-item>
     </el-submenu>
@@ -42,6 +42,15 @@
     methods: {
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
+      },
+      postFile(){
+        this.$axios
+          .post('/fileContent',{
+            ss:"ssss"
+          })
+          .catch(failResponse =>{
+
+          })
       }
     }
   }
