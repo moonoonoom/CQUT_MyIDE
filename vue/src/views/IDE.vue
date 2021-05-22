@@ -1,9 +1,9 @@
 <template>
     <div>
-        <NavMenu/>
+        <NavMenu :isDisForLex="!inputCode" :oriCode="inputCode" />
         <el-form>
             <el-col :span="8">
-                <el-input class="codeText" type="textarea" rows="30" v-model="input" ></el-input>
+                <el-input class="codeText" type="textarea" rows="30" v-model="inputCode" ></el-input>
             </el-col>
             <el-col :span="16">
                 <el-row :span="12">
@@ -30,7 +30,8 @@ export default{
     },
     data(){
         return{
-            input:''
+            input:'',
+            inputCode:''
         }
     }
 }
