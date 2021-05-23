@@ -24,17 +24,18 @@ import java.util.List;
 public class LexicalAnalysisController {
 
     LexicalAnalysisService lexAna = new LexicalAnalysisService();
-    ObjectMapper objectMapper = new ObjectMapper();
+
 
     @CrossOrigin //解决跨域问题
     @GetMapping(value = "api/LexicalAnalysis/Scan")  //映射get请求
     public String Scan(@RequestParam("str") String str) throws JsonProcessingException {
         List<Word> words = lexAna.scan(str);
         for(int i = 0; i < words.size();i++){
-            words.get(i).setToken();
+            words.get(i).setTokenPrint();
         }
         Gson gson = new Gson();
         String json = gson.toJson(words);
+        lexAna.initLex();
         return json;
         //return "2";
     }

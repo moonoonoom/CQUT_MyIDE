@@ -1,13 +1,13 @@
 <template>
     <div>
-        <NavMenu :isDisForLex="!inputCode" :oriCode="inputCode" />
+        <NavMenu :isDisForLex="!inputCode" :oriCode="inputCode" @getToken="showToken" />
         <el-form>
             <el-col :span="8">
                 <el-input class="codeText" type="textarea" rows="30" v-model="inputCode" ></el-input>
             </el-col>
             <el-col :span="16">
                 <el-row :span="12">
-                    <el-input type="textarea" rows="15" v-model="input" ></el-input>
+                    <el-input style="text-align:center" type="textarea" rows="15" v-model="token" ></el-input>
                 </el-row>
                 <el-row :span="12">
                     <el-input type="textarea" rows="15" v-model="input" ></el-input>
@@ -31,7 +31,21 @@ export default{
     data(){
         return{
             input:'',
-            inputCode:''
+            inputCode:'',
+            token:''
+        }
+    },
+    methods: {
+        showToken(value){
+            let tokenStr = ""
+            console.log(value)
+            let i = 1;
+            value.forEach(e => {
+                console.log(e);
+                tokenStr += i+". "+e.content +"  "+e.token_print+"\n";
+                i++;
+            });
+            this.token = tokenStr;
         }
     }
 }

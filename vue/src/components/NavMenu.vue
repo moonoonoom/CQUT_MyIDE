@@ -26,7 +26,10 @@
       <el-menu-item index="2-5-3">选项3</el-menu-item>
     </el-submenu>
   </el-submenu>
-  <el-menu-item index="3" :disabled="isDisForLex" @click="scan()">词法分析</el-menu-item>
+  <el-submenu index="3">
+    <template slot="title">分析</template>
+    <el-menu-item index="3-1" :disabled="isDisForLex" @click="scan()">词法分析</el-menu-item>
+  </el-submenu>
   <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">超链接</a></el-menu-item>
 </el-menu>
 </template>
@@ -48,7 +51,7 @@
     },
     methods: {
       handleSelect(key, keyPath) {
-        console.log(key, keyPath);
+        // console.log(key, keyPath);
       },
       postFile(){
         this.$axios
@@ -68,6 +71,7 @@
           })
           .then((response) => {
             console.log(response.data);
+            this.$emit('getToken',response.data);
           })
           
           .catch(failResponse =>{
