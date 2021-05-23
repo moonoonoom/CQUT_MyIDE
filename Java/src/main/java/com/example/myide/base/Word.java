@@ -17,6 +17,10 @@ public class Word {
         return this.token;
     }
 
+    public String getContent(){
+        return this.content;
+    }
+
     public Word(String content,int state){
         this.content = content;
         this.state = state;
@@ -25,7 +29,7 @@ public class Word {
     public void setTokenPrint(){
 
         this.token = WordState.values()[state].toString();
-        if(this.token.equals("KEY")||this.token.equals("OPERATOR")){
+        if(this.token.equals("KEY")||this.token.equals("OPERATOR")||this.token.equals("DELIMITER")){
             this.token_print=this.token+"_"+this.content.toUpperCase();
         }
         else{

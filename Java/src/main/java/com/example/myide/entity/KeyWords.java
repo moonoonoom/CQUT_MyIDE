@@ -7,6 +7,7 @@ public class KeyWords {
     public List<String> list = new ArrayList<>();
     public List<String> booleanList = new ArrayList<>();
     public List<Character> symbolList = new ArrayList<>();
+    public List<String> typeList = new ArrayList<>();
     public KeyWords(){
         list.add("int");
         list.add("float");
@@ -31,5 +32,8 @@ public class KeyWords {
         symbolList.add(';');
         symbolList.add('>');
         symbolList.add('<');
+        typeList.add("int");
+        typeList.add("float");
+        typeList.add("char");
     }
 }

@@ -21,15 +21,15 @@ public class ParsingController {
     @CrossOrigin //解决跨域问题
     @GetMapping(value = "api/Parsing/parse")  //映射get请求
     public String parse(@RequestParam("str") String str){
-//        las.initLex();
-//        ps.init();
+        las.initLex();
+        ps.init();
         ArrayList<Word> words = las.scan(str);
         for(int i = 0; i < words.size();i++){
             words.get(i).setToken();
         }
         ps.setToken(words);
         try {
-            ps.expression();
+            ps.statement();
         }catch(Exception e){
             return e.getMessage();
         }
