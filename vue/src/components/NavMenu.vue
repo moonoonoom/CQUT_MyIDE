@@ -29,6 +29,7 @@
   <el-submenu index="3">
     <template slot="title">分析</template>
     <el-menu-item index="3-1" :disabled="isDisForLex" @click="scan()">词法分析</el-menu-item>
+    <el-menu-item index="3-2" :disabled="isDisForLex" @click="parse()">语法分析</el-menu-item>
   </el-submenu>
   <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">超链接</a></el-menu-item>
 </el-menu>
@@ -70,14 +71,26 @@
             }
           })
           .then((response) => {
-            console.log(response.data);
+            // console.log(response.data);
             this.$emit('getToken',response.data);
-          })
-          
+          }) 
           .catch(failResponse =>{
-
           })
-        
+      },
+      parse(){
+        this.$axios
+          .get('/Parsing/parse',{
+            params:{
+              str: this.oriCode
+            }
+          })
+          .then((response) => {
+            this.scan();
+            console.log(response.data);
+            this.$emit('getParse',response.data);
+          }) 
+          .catch(failResponse =>{
+          })
       }
     }
   }

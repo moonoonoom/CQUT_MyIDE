@@ -58,7 +58,7 @@ public class LexicalAnalysisService {
     }
 
     /**
-     * 从字符开始的符号转换
+     * 从符号开始的符号转换
      * @param chars
      * @return
      */
@@ -211,7 +211,7 @@ public class LexicalAnalysisService {
      */
     private Word beginFromAlp(char[] chars){
         int index = begin+1;//下一个字符
-        int state = WordState.CHAR.ordinal();//初始状态为字符状态
+        int state = WordState.VAR.ordinal();//初始状态为字符状态
         char tempc;
         String wordStr="";
         while(state!=WordState.ERROR.ordinal()&&index<chars.length){ //只要状态不是结束或者报错

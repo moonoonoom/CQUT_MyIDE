@@ -13,6 +13,10 @@ public class Word {
         this.content = content;
     }
 
+    public String getToken(){
+        return this.token;
+    }
+
     public Word(String content,int state){
         this.content = content;
         this.state = state;
@@ -27,5 +31,9 @@ public class Word {
         else{
             this.token_print = this.token;
         }
+    }
+
+    public void setToken(){
+        this.token = WordState.values()[state].toString();
     }
 }
